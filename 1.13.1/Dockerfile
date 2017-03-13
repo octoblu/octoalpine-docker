@@ -1,10 +1,14 @@
 FROM octoblu/octoalpine:latest
 MAINTAINER Octoblu <docker@octoblu.com>
 
-RUN curl -fsSLO https://github.com/docker/machine/releases/download/v0.9.0/docker-machine-Linux-x86_64
-RUN mv docker-machine-Linux-x86_64 /usr/local/bin/docker-machine
-RUN chmod +x /usr/local/bin/docker-machine
+ENV DOCKER_VERSION 1.13.1
+env DOCKER_MACHINE_VERSION 0.9.0
 
-RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz
-RUN tar --strip-components=1 -xvzf docker-1.13.1.tgz -C /usr/local/bin
-RUN chmod +x /usr/local/bin/docker
+RUN curl -fsSLO "https://github.com/docker/machine/releases/download/v$DOCKER_MACHINE_VERSION/docker-machine-Linux-x86_64" \
+  && mv docker-machine-Linux-x86_64 /usr/local/bin/docker-machine \
+  && chmod +x /usr/local/bin/docker-machine
+
+RUN curl -fsSLO "https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION.tgz" \
+  && tar --strip-components=1 -xvzf "docker-$DOCKER_VERSION.tgz" -C /usr/local/bin \
+  && chmod +x /usr/local/bin/docker \
+  && rm "docker-$DOCKER_VERSION.tgz"
