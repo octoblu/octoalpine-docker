@@ -8,7 +8,7 @@ RUN curl -fsSLO "https://github.com/docker/machine/releases/download/v$DOCKER_MA
   && mv docker-machine-Linux-x86_64 /usr/local/bin/docker-machine \
   && chmod +x /usr/local/bin/docker-machine
 
-RUN curl -fsSLO "https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION.tgz" \
+RUN curl -fsSLO "https://test.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION.tgz" \
   && tar --strip-components=1 -xvzf "docker-$DOCKER_VERSION.tgz" -C /usr/local/bin \
   && chmod +x /usr/local/bin/docker \
   && rm "docker-$DOCKER_VERSION.tgz"
