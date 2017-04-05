@@ -13,6 +13,6 @@ RUN curl -fsSLO "https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSI
   && chmod +x /usr/local/bin/docker \
   && rm "docker-$DOCKER_VERSION.tgz"
 
-RUN curl -o /usr/local/bin/docker-swarm-diff -fsSL https://github.com/octoblu/docker-swarm-diff/releases/download/docker1.12-v1.0.3/docker-swarm-diff-linux-amd64 \
+RUN curl -o /usr/local/bin/docker-swarm-diff -fsSL https://github.com/octoblu/docker-swarm-diff/releases/download/v1.0.6/docker-swarm-diff-linux-amd64 \
   && chmod +x /usr/local/bin/docker-swarm-diff \
   && ln -nsf /usr/local/bin/docker-swarm-diff /usr/local/bin/dsd
