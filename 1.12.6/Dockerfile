@@ -2,7 +2,8 @@ FROM octoblu/octoalpine:latest
 MAINTAINER Octoblu <docker@octoblu.com>
 
 ENV DOCKER_VERSION 1.12.6
-env DOCKER_MACHINE_VERSION 0.9.0
+ENV DOCKER_MACHINE_VERSION 0.9.0
+ENV DOCKER_SWARM_DIFF_VERSION 1.3.0
 
 RUN curl -fsSLO "https://github.com/docker/machine/releases/download/v$DOCKER_MACHINE_VERSION/docker-machine-Linux-x86_64" \
   && mv docker-machine-Linux-x86_64 /usr/local/bin/docker-machine \
@@ -13,6 +14,6 @@ RUN curl -fsSLO "https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSI
   && chmod +x /usr/local/bin/docker \
   && rm "docker-$DOCKER_VERSION.tgz"
 
-RUN curl -o /usr/local/bin/docker-swarm-diff -fsSL https://github.com/octoblu/docker-swarm-diff/releases/download/v1.2.0/docker-swarm-diff-linux-amd64 \
+RUN curl -o /usr/local/bin/docker-swarm-diff -fsSL "https://github.com/octoblu/docker-swarm-diff/releases/download/v${DOCKER_SWARM_DIFF_VERSION}/docker-swarm-diff-linux-amd64" \
   && chmod +x /usr/local/bin/docker-swarm-diff \
   && ln -nsf /usr/local/bin/docker-swarm-diff /usr/local/bin/dsd
