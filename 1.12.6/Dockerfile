@@ -3,7 +3,7 @@ MAINTAINER Octoblu <docker@octoblu.com>
 
 ENV DOCKER_VERSION 1.12.6
 ENV DOCKER_MACHINE_VERSION 0.9.0
-ENV DOCKER_SWARM_DIFF_VERSION 1.3.1
+ENV DOCKER_SWARM_DIFF_VERSION 1.3.3
 
 RUN curl -fsSLO "https://github.com/docker/machine/releases/download/v$DOCKER_MACHINE_VERSION/docker-machine-Linux-x86_64" \
   && mv docker-machine-Linux-x86_64 /usr/local/bin/docker-machine \
